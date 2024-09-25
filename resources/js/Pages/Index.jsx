@@ -1,19 +1,16 @@
 import Board from "./Board";
+import InputForm from "./InputForm";
 
 export default function Index() {
     return (
         <div className="container">
             <div className="row mt-5">
                 <div className="col">
-                    <div className="form-group">
-                        <label className="form-label" for="fieldInputs">Werte</label>
-                        <input type="text" className="form-control" id="fieldsInputs" name="fieldInputs" aria-label="values"></input>
-                        <span className="form-text">Werte für die Felder, kommasepariert</span>
-                    </div>
+                    <InputForm/>
                 </div>
             </div>
             <div className="row mt-5">
-                <div className="col d-flex justify-content-center">
+                <div className="col d-flex justify-content-center mb-5">
                     <Board />
                 </div>
             </div>
