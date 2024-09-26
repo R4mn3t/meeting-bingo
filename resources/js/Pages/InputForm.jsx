@@ -1,18 +1,18 @@
 import { useState } from "react";
 
-export default function InputForm() {
-    const [inputValue, setInputValue] = useState('');
+export default function InputForm({ onFieldValueInput, locales }) {
+    const [inputValues, setInputsValue] = useState('');
     const [alertMessage, setAlertMessage] = useState('');
 
     function handleRandomize() {
-        let fieldValues = inputValue.split(','); 
+        let fieldValues = inputValues.split(';'); 
         fieldValues = fieldValues.map(item => item.trim()).filter(item => item !== '');
 
         if (fieldValues.length < 25) {
-            setAlertMessage('Too few entries, please enter 25 values separated by commas.');
+            setAlertMessage(locales.too_few);
         }
         else if (fieldValues.length > 25) {
-            setAlertMessage('Too many entries, please enter 25 values separated by commas.');
+            setAlertMessage(locales.too_many);
         }
         else {
             setAlertMessage('');
@@ -20,14 +20,14 @@ export default function InputForm() {
         
         if (fieldValues.length === 25) {
             const shuffledFieldValues = fieldValues.sort((a, b) => 0.5 - Math.random());
-            console.log(shuffledFieldValues);
+            onFieldValueInput(shuffledFieldValues);
         }
-
         
     }
 
-    function handleOnChange(event) {
-        setInputValue(event.target.value);
+    function handleChange(event) {
+        const value = event.target.value;
+        setInputsValue(value);
     }
 
 
@@ -39,19 +39,19 @@ export default function InputForm() {
                 </div>
             )}
             <div className="input-group">
-                <span className="input-group-text">Values</span>
+                <span className="input-group-text">{locales.values}</span>
                 <input
                     type="text"
                     className="form-control"
                     id="fieldsInputs"
                     name="fieldInputs"
                     aria-label="values"
-                    placeholder="Values for fields, comma seperated"
-                    value={inputValue}
-                    onChange={handleOnChange}
+                    placeholder={locales.placeholder}
+                    value={inputValues}
+                    onChange={handleChange}
                 />
                 <button className="input-group-text" type="button" onClick={handleRandomize}>
-                    Randomize
+                    {locales.randomize}
                 </button>
             </div>
         </>

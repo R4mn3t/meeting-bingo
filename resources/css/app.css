@@ -1,7 +1,6 @@
 .field {
     background: #fff;
     border: 1px solid #999;
-    float: left;
     font-size: 24px;
     font-weight: bold;
     line-height: 34px;
@@ -11,8 +10,22 @@
     margin-top: -1px;
     padding: 0;
     text-align: center;
+    padding: 10px;
+    font-size: 1rem;
+    /* white-space: nowrap; */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    max-width: 100%;
+    word-wrap: break-word;
 }
 
-.field-active {
-    background-color: aquamarine;
-}
+/* .field span {
+    font-size: inherit;
+    display: inline-block;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* white-space: nowrap; 
+} 
+*/
