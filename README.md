@@ -34,3 +34,42 @@ APP_LOCALE=<your language tag>
 ```
 
 Currently english and german are available. Feel free to add more. For more information abaout languages klick [here](https://laravel.com/docs/11.x/localization).
+
+# Deployment
+
+1. Run production build for assests (JavaScript, CSS):
+
+    ```
+    npm run build
+    ```
+
+2. Configure environment settings:
+
+    ```
+    APP_ENV=production
+    APP_DEBUG=false
+    APP_URL=https://<your-domain.com>
+    ```
+
+3. Run optimizes:
+
+    ```
+    php artisan config:cache
+    php artisan route:cache
+    php artisan view:cache
+    ```
+
+4. Laravel in production on server:
+
+    - Upload project to server (Git, SFTP)
+    - Make sure your server has access to yor application:
+
+    ```
+    composer install --optimize-autoloader --no-dev
+    ```
+
+5. Run database migrations:
+
+    ```
+    php artisan migrate
+    ```
