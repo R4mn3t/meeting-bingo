@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title inertia>{{ config('app.name', 'Meeting Bingo') }}</title>
+        <title>{{ config('app.name', 'Meeting Bingo') }}</title>
 
         <!-- Scripts -->
         @routes

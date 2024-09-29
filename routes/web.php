@@ -1,10 +1,9 @@
-<?php
+<?php /** @noinspection PhpMultipleClassDeclarationsInspection */
 
 use App\Http\Controllers\IndexController;
-use App\Http\Controllers\ProfileController;
-use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
+use Illuminate\Support\Facades\Session;
+
 
 // Route::get('/', function () {
 //     return Inertia::render('Welcome', [
@@ -26,5 +25,14 @@ use Inertia\Inertia;
 // });
 
 Route::get('/', [IndexController::class, 'index']);
+Route::get('/set-locale/{locale}', function ($locale) {
+	$availableLocales = ['en', 'de'];
+
+	if (in_array($locale, $availableLocales)) {
+		Session::put('locale', $locale);
+	}
+
+	return redirect()->back();
+});
 
 require __DIR__ . '/auth.php';
