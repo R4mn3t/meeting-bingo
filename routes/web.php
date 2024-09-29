@@ -1,4 +1,4 @@
-<?php
+<?php /** @noinspection PhpMultipleClassDeclarationsInspection */
 
 use App\Http\Controllers\IndexController;
 use Illuminate\Support\Facades\Route;
@@ -26,14 +26,13 @@ use Illuminate\Support\Facades\Session;
 
 Route::get('/', [IndexController::class, 'index']);
 Route::get('/set-locale/{locale}', function ($locale) {
-    $availableLocales = ['en', 'de'];
+	$availableLocales = ['en', 'de'];
 
-    if (in_array($locale, $availableLocales)) {
-        Session::put('locale', $locale);
-    }
+	if (in_array($locale, $availableLocales)) {
+		Session::put('locale', $locale);
+	}
 
-    return redirect()->back();
+	return redirect()->back();
 });
-
 
 require __DIR__ . '/auth.php';

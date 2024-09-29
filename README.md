@@ -62,7 +62,7 @@ Currently english and german are available. Feel free to add more. For more info
 4. Laravel in production on server:
 
     - Upload project to server (Git, SFTP)
-    - Make sure your server has access to yor application:
+    - Make sure your server has access to your application:
 
     ```
     composer install --optimize-autoloader --no-dev
