@@ -1,6 +1,6 @@
 # About
 
-Are you catching yourself not paying attention to meetings? Do you go out of meeting not knowing what happends seconds after?
+Are you catching yourself not paying attention to meetings? Do you go out of meeting not knowing what happens seconds after?
 
 There is no better way to pay attention to **what** is happening during a meeting than playing meeting bingo.
 
@@ -11,8 +11,10 @@ To be honest, it won't help you remember the meeting topics, but it's a lot more
 -   composer
 -   npm
 
-# Installation
+# Setup and deployment
+## Installation and basic configuration
 
+1. Install dependencies:
 ```
 composer install
 npm install
@@ -21,21 +23,21 @@ php artisan migrate
 npm run build
 ```
 
-If you want to change the application name change 'APP_NAME' in .env:
+2. Customize the application name (optional):
 
 ```
 APP_NAME=<Your name>
 ```
 
-The default language is english. Too apply another language change 'APP_LOCALE' in .env:
+3. Set language (optional):
 
 ```
 APP_LOCALE=<your language tag>
 ```
 
-Currently english and german are available. Feel free to add more. For more information abaout languages klick [here](https://laravel.com/docs/11.x/localization).
+English and German are currently available. Other languages can be added if required. Further information on language localization can be found in the [Laravel documentation](https://laravel.com/docs/11.x/localization).
 
-# Deployment
+# Deployment for production environment
 
 1. Run production build for assests (JavaScript, CSS):
 
@@ -59,7 +61,7 @@ Currently english and german are available. Feel free to add more. For more info
     php artisan view:cache
     ```
 
-4. Laravel in production on server:
+4. Provision on the server:
 
     - Upload project to server (Git, SFTP)
     - Make sure your server has access to your application:
@@ -73,3 +75,5 @@ Currently english and german are available. Feel free to add more. For more info
     ```
     php artisan migrate
     ```
+   
+6. You're good to go, have fun!
