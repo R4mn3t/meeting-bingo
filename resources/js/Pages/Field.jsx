@@ -1,7 +1,7 @@
-export default function Field({ value, onFieldClick, id }) {
+export default function Field({ value, marked, onFieldClick, id }) {
     return (
-        <button className={"field flex-shrink " + (value ? 'field-active' : '')} onClick={onFieldClick} id={id}>
-            {value}
+        <button className={"field" + (marked ? ' bg-success' : '')} onClick={onFieldClick} id={id}>
+            <span>{value}</span>
         </button>
     );
 }

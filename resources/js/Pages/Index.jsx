@@ -1,20 +1,29 @@
+import { useState } from "react";
 import Board from "./Board";
+import InputForm from "./InputForm";
+import LanguageSwitch from "./LangaugeSwitch";
 
-export default function Index() {
+export default function Index({locales}) {
+
+    const [fieldValues, setFieldValues] = useState([]);
+
+    function handleFieldValues(values) {
+        setFieldValues(values);
+    }
+
     return (
         <div className="container">
             <div className="row mt-5">
+                <LanguageSwitch />
+            </div>
+            <div className="row mt-3">
                 <div className="col">
-                    <div className="form-group">
-                        <label className="form-label" for="fieldInputs">Werte</label>
-                        <input type="text" className="form-control" id="fieldsInputs" name="fieldInputs" aria-label="values"></input>
-                        <span className="form-text">Werte für die Felder, kommasepariert</span>
-                    </div>
+                    <InputForm onFieldValueInput={handleFieldValues} locales={locales} />
                 </div>
             </div>
-            <div className="row mt-5">
-                <div className="col d-flex justify-content-center">
-                    <Board />
+            <div className="row mt-4">
+                <div className="col d-flex justify-content-center mb-5">
+                    <Board fieldValues={fieldValues} />
                 </div>
             </div>
         </div>
